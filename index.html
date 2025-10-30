@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiBambu Colombia - Buyer Personas 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            background: linear-gradient(90deg, #7AFF6F 0%, #00D9FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #00D9FF;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            color: #7AFF6F;
+            font-size: 1.1em;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid rgba(122, 255, 111, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: #7AFF6F;
+            box-shadow: 0 10px 30px rgba(122, 255, 111, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            color: #7AFF6F;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #00D9FF;
+            font-size: 1.1em;
+        }
+
+        /* Persona Cards */
+        .persona {
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.8) 0%, rgba(22, 33, 62, 0.8) 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 2px solid rgba(0, 217, 255, 0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .persona:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 217, 255, 0.3);
+            border-color: #00D9FF;
+        }
+
+        .persona-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .persona-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid #7AFF6F;
+            object-fit: cover;
+            box-shadow: 0 0 30px rgba(122, 255, 111, 0.4);
+        }
+
+        .persona-title {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .persona-title h2 {
+            font-size: 2.5em;
+            color: #7AFF6F;
+            margin-bottom: 10px;
+        }
+
+        .persona-title .tagline {
+            font-size: 1.3em;
+            color: #00D9FF;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .persona-title .competitor-tag {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(90deg, #7AFF6F 0%, #00D9FF 100%);
+            color: #0f3460;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .persona-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .persona-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #7AFF6F;
+        }
+
+        .persona-section h3 {
+            color: #00D9FF;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .persona-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .persona-section li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .persona-section li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #7AFF6F;
+            font-weight: bold;
+        }
+
+        .demographics {
+            background: rgba(122, 255, 111, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .demographics p {
+            margin: 8px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .demographics strong {
+            color: #7AFF6F;
+        }
+
+        .insight-box {
+            background: linear-gradient(135deg, rgba(122, 255, 111, 0.2) 0%, rgba(0, 217, 255, 0.2) 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #7AFF6F;
+            margin-top: 20px;
+        }
+
+        .insight-box h4 {
+            color: #7AFF6F;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        /* Marketing Strategy */
+        .strategy-section {
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.9) 0%, rgba(22, 33, 62, 0.9) 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 50px;
+            border: 2px solid rgba(122, 255, 111, 0.5);
+        }
+
+        .strategy-section h2 {
+            font-size: 2.5em;
+            color: #7AFF6F;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .strategy-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid rgba(0, 217, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .strategy-card:hover {
+            border-color: #00D9FF;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+        }
+
+        .strategy-card h3 {
+            color: #00D9FF;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 2px solid rgba(122, 255, 111, 0.3);
+        }
+
+        footer p {
+            color: #7AFF6F;
+            font-size: 1.1em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .persona-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .persona-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MiBambu Colombia</h1>
+            <p class="subtitle">Buyer Personas & Competitor Analysis</p>
+            <p class="date">Market Research Report - 2025</p>
+        </header>
+
+        <!-- Stats Overview -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">21,716</div>
+                <div class="stat-label">Colombian Leads</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">76%</div>
+                <div class="stat-label">Fintech Adoption Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">400+</div>
+                <div class="stat-label">Fintech Startups</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">92%</div>
+                <div class="stat-label">Banking Product Penetration</div>
+            </div>
+        </div>
+
+        <!-- Persona 1: Camila - MiBambu Lead -->
+        <div class="persona">
+            <div class="persona-header">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop" alt="Camila" class="persona-image">
+                <div class="persona-title">
+                    <h2>Camila Torres</h2>
+                    <p class="tagline">"Necesito acceso rápido a créditos sin historial"</p>
+                    <span class="competitor-tag">MiBambu Colombia Lead Profile</span>
+                </div>
+            </div>
+
+            <div class="demographics">
+                <p><strong>Edad:</strong> <span>28 años</span></p>
+                <p><strong>Ubicación:</strong> <span>Bogotá, Colombia</span></p>
+                <p><strong>Ocupación:</strong> <span>Emprendedora/Trabajadora Informal</span></p>
+                <p><strong>Ingresos:</strong> <span>$1,800,000 - $3,500,000 COP/mes</span></p>
+                <p><strong>Estado:</strong> <span>Soltera</span></p>
+            </div>
+
+            <div class="persona-content">
+                <div class="persona-section">
+                    <h3>🎯 Goals & Motivations</h3>
+                    <ul>
+                        <li>Acceder a crédito sin historial crediticio tradicional</li>
+                        <li>Abrir cuenta de ahorros digital con facilidad</li>
+                        <li>Obtener tarjeta de débito para compras en línea</li>
+                        <li>Hacer transferencias rápidas y económicas</li>
+                        <li>Construir su historial financiero desde cero</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>😤 Frustrations & Pain Points</h3>
+                    <ul>
+                        <li>Bancos tradicionales rechazan créditos por falta de historial</li>
+                        <li>Procesos de apertura de cuenta muy complicados</li>
+                        <li>Comisiones altas en bancos tradicionales</li>
+                        <li>Dificultad para demostrar ingresos informales</li>
+                        <li>Largas filas y trámites presenciales</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>💳 Financial Behavior</h3>
+                    <ul>
+                        <li>Principalmente transacciones en efectivo</li>
+                        <li>Necesita crédito para emprendimiento</li>
+                        <li>Busca recargas de celular frecuentes</li>
+                        <li>Realiza pagos en línea ocasionales</li>
+                        <li>Ahorra informalmente con amigos/familia</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>📱 Tech & Communication</h3>
+                    <ul>
+                        <li>Smartphone Android (gama media)</li>
+                        <li>Usa WhatsApp como principal canal</li>
+                        <li>Activa en Instagram y TikTok</li>
+                        <li>Prefiere tutoriales en video</li>
+                        <li>Busca recomendaciones en redes sociales</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h4>🎯 How MiBambu Colombia Can Win Camila</h4>
+                <p><strong>Gana $60,000 al abrir tu cuenta:</strong> Bono de bienvenida cuando completas tu apertura y agregas $50,000 en los primeros 5 días hábiles - dinero gratis para empezar</p>
+                <p><strong>Apertura 100% digital en minutos:</strong> Sin requisitos bancarios tradicionales, solo cédula y selfie - sin filas ni papeleos</p>
+                <p><strong>Microcréditos sin historial crediticio:</strong> Créditos pequeños iniciales que crecen con tu buen comportamiento - construye tu historial desde cero</p>
+                <p><strong>Transferencias gratis con Bre-B:</strong> Envía dinero a cualquier banco colombiano al instante (<20 segundos), 24/7, sin comisión - adiós a esperas de PSE</p>
+                <p><strong>Recibe dinero de USA gratis:</strong> Solicita remesas de usuarios MyBambu en Estados Unidos sin costo adicional - apoyo para tu emprendimiento</p>
+                <p><strong>Tarjeta de débito gratuita:</strong> Digital y física sin cuotas de manejo ni costos ocultos</p>
+            </div>
+        </div>
+
+        <!-- Persona 2: Andrés - Nubank User -->
+        <div class="persona">
+            <div class="persona-header">
+                <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400&h=400&fit=crop" alt="Andrés" class="persona-image">
+                <div class="persona-title">
+                    <h2>Andrés Gómez</h2>
+                    <p class="tagline">"Quiero una tarjeta de crédito sin complicaciones"</p>
+                    <span class="competitor-tag">Nubank User Profile</span>
+                </div>
+            </div>
+
+            <div class="demographics">
+                <p><strong>Edad:</strong> <span>24 años</span></p>
+                <p><strong>Ubicación:</strong> <span>Medellín, Colombia</span></p>
+                <p><strong>Ocupación:</strong> <span>Estudiante universitario / Freelancer</span></p>
+                <p><strong>Ingresos:</strong> <span>$1,200,000 - $2,500,000 COP/mes</span></p>
+                <p><strong>Estado:</strong> <span>Soltero</span></p>
+            </div>
+
+            <div class="persona-content">
+                <div class="persona-section">
+                    <h3>🎯 Goals & Motivations</h3>
+                    <ul>
+                        <li>Obtener su primera tarjeta de crédito</li>
+                        <li>Construir historial crediticio desde joven</li>
+                        <li>Pagar servicios de streaming y compras online</li>
+                        <li>Gestionar finanzas desde el celular</li>
+                        <li>Acceder a crédito para emergencias</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>😤 Frustrations & Pain Points</h3>
+                    <ul>
+                        <li>Bancos rechazan tarjetas por edad o ingresos bajos</li>
+                        <li>No tiene historial crediticio previo</li>
+                        <li>Cuotas de manejo y costos ocultos en bancos</li>
+                        <li>Apps bancarias complicadas y anticuadas</li>
+                        <li>Mal servicio al cliente en bancos tradicionales</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>💳 Financial Behavior</h3>
+                    <ul>
+                        <li>Ingresos variables como freelancer</li>
+                        <li>Usa Nubank para tarjeta de crédito</li>
+                        <li>Realiza compras online frecuentemente</li>
+                        <li>Suscripciones a Netflix, Spotify, etc.</li>
+                        <li>Paga todo con tarjeta cuando es posible</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>📱 Tech & Communication</h3>
+                    <ul>
+                        <li>iPhone o Android de gama alta</li>
+                        <li>Early adopter de nuevas tecnologías</li>
+                        <li>Activo en Instagram, TikTok y Twitter</li>
+                        <li>Confía en influencers y reseñas online</li>
+                        <li>Prefiere todo digital y sin contacto</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h4>🎯 How MiBambu Colombia Can Win Andrés</h4>
+                <p><strong>$60,000 de regalo + refiere y gana más:</strong> Bono de apertura + gana dinero extra por cada amigo que refiere (ellos deben agregar $20,000 y hacer 2 compras de $10,000)</p>
+                <p><strong>Tarjeta de crédito sin cuota de manejo:</strong> Competir directamente con Nubank eliminando todas las comisiones - tarjeta digital instantánea</p>
+                <p><strong>Aprobación en minutos:</strong> Algoritmo inteligente que evalúa más que solo historial tradicional - estudiantes y freelancers bienvenidos</p>
+                <p><strong>Transferencias entre amigos MiBambu gratis:</strong> Divide cuentas, presta y paga sin costo usuario-a-usuario - mejor que Nequi</p>
+                <p><strong>Bre-B para gastos compartidos:</strong> Transfiere a cualquier banco al instante sin comisión - paga tu parte del apartamento en segundos</p>
+                <p><strong>Cashback en categorías relevantes:</strong> Streaming, apps, delivery, gaming - gana mientras pagas Netflix y Rappi</p>
+                <p><strong>App moderna y gamificada:</strong> Interfaz superior a Nubank con funciones de ahorro automático</p>
+            </div>
+        </div>
+
+        <!-- Persona 3: Valentina - Nequi User -->
+        <div class="persona">
+            <div class="persona-header">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop" alt="Valentina" class="persona-image">
+                <div class="persona-title">
+                    <h2>Valentina Martínez</h2>
+                    <p class="tagline">"Todo desde mi celular, rápido y fácil"</p>
+                    <span class="competitor-tag">Nequi User Profile</span>
+                </div>
+            </div>
+
+            <div class="demographics">
+                <p><strong>Edad:</strong> <span>26 años</span></p>
+                <p><strong>Ubicación:</strong> <span>Cali, Colombia</span></p>
+                <p><strong>Ocupación:</strong> <span>Profesional en Marketing Digital</span></p>
+                <p><strong>Ingresos:</strong> <span>$3,000,000 - $4,500,000 COP/mes</span></p>
+                <p><strong>Estado:</strong> <span>Soltera</span></p>
+            </div>
+
+            <div class="persona-content">
+                <div class="persona-section">
+                    <h3>🎯 Goals & Motivations</h3>
+                    <ul>
+                        <li>Gestionar todo desde una app móvil intuitiva</li>
+                        <li>Hacer transferencias instantáneas a amigos</li>
+                        <li>Pagar en comercios sin usar efectivo</li>
+                        <li>Organizar sus metas de ahorro</li>
+                        <li>Controlar gastos en tiempo real</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>😤 Frustrations & Pain Points</h3>
+                    <ul>
+                        <li>Nequi tiene límites bajos de transacción</li>
+                        <li>No ofrece tarjeta de crédito aún</li>
+                        <li>Funcionalidades limitadas para inversiones</li>
+                        <li>Falta de opciones de crédito personal</li>
+                        <li>No puede hacer pagos internacionales fácilmente</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>💳 Financial Behavior</h3>
+                    <ul>
+                        <li>Usa Nequi como billetera principal</li>
+                        <li>Hace múltiples transferencias P2P diarias</li>
+                        <li>Paga con QR en comercios aliados</li>
+                        <li>Recarga celular y paga servicios por app</li>
+                        <li>Ahorra en "colchones" de Nequi</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>📱 Tech & Communication</h3>
+                    <ul>
+                        <li>iPhone 13 o superior</li>
+                        <li>Completamente digital, evita bancos físicos</li>
+                        <li>Instagram y LinkedIn son sus redes principales</li>
+                        <li>Influenciada por tendencias financieras</li>
+                        <li>Lee blogs de finanzas personales</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h4>🎯 How MiBambu Colombia Can Win Valentina</h4>
+                <p><strong>Transferencias P2P gratis usuario-a-usuario:</strong> Sin límites ridículos de Nequi - envía lo que necesites entre usuarios MiBambu sin costo</p>
+                <p><strong>Bre-B instantáneo a cualquier banco:</strong> Paga a proveedores o amigos en otros bancos en menos de 20 segundos, 24/7, sin comisión - mejor que Nequi</p>
+                <p><strong>PSE gratuito para recargar tu cuenta:</strong> Trae dinero de tu banco externo sin costo - ninguna comisión</p>
+                <p><strong>Todo en uno real:</strong> Cuenta + tarjeta de crédito + inversiones en una sola app - lo que Nequi no puede ofrecer</p>
+                <p><strong>Sin límites absurdos:</strong> Límites de transacción más altos que Nequi desde el inicio - para profesionales como tú</p>
+                <p><strong>Programa de referidos generoso:</strong> Gana $60,000 por apertura + dinero extra por cada amiga que traigas - viraliza tu red</p>
+                <p><strong>Pagos internacionales:</strong> Compras en USD sin comisiones altas + recibe remesas de USA</p>
+            </div>
+        </div>
+
+        <!-- Persona 4: Juan Carlos - Daviplata User -->
+        <div class="persona">
+            <div class="persona-header">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Juan Carlos" class="persona-image">
+                <div class="persona-title">
+                    <h2>Juan Carlos Rodríguez</h2>
+                    <p class="tagline">"Necesito recibir mi sueldo y pagar fácil"</p>
+                    <span class="competitor-tag">Daviplata User Profile</span>
+                </div>
+            </div>
+
+            <div class="demographics">
+                <p><strong>Edad:</strong> <span>35 años</span></p>
+                <p><strong>Ubicación:</strong> <span>Barranquilla, Colombia</span></p>
+                <p><strong>Ocupación:</strong> <span>Trabajador Formal - Operario</span></p>
+                <p><strong>Ingresos:</strong> <span>$1,400,000 - $2,200,000 COP/mes</span></p>
+                <p><strong>Estado:</strong> <span>Casado, 2 hijos</span></p>
+            </div>
+
+            <div class="persona-content">
+                <div class="persona-section">
+                    <h3>🎯 Goals & Motivations</h3>
+                    <ul>
+                        <li>Recibir su nómina de forma digital</li>
+                        <li>Pagar servicios públicos sin comisiones</li>
+                        <li>Enviar dinero a familia en zonas rurales</li>
+                        <li>Ahorrar para emergencias familiares</li>
+                        <li>Acceder a créditos pequeños cuando necesite</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>😤 Frustrations & Pain Points</h3>
+                    <ul>
+                        <li>Daviplata cobra por algunos servicios</li>
+                        <li>No ofrece tarjeta de crédito</li>
+                        <li>Límites muy bajos para transacciones</li>
+                        <li>Pocas opciones de ahorro con rendimientos</li>
+                        <li>App a veces lenta en horas pico</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>💳 Financial Behavior</h3>
+                    <ul>
+                        <li>Usa Daviplata como cuenta de nómina</li>
+                        <li>Paga servicios y facturas mensualmente</li>
+                        <li>Envía remesas a familia en otras ciudades</li>
+                        <li>Retira efectivo frecuentemente</li>
+                        <li>Ahorra poco, prioriza gastos inmediatos</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>📱 Tech & Communication</h3>
+                    <ul>
+                        <li>Smartphone Android básico o gama media</li>
+                        <li>Usa WhatsApp para todo</li>
+                        <li>No muy activo en redes sociales</li>
+                        <li>Prefiere instrucciones simples y claras</li>
+                        <li>Confía en recomendaciones de compañeros</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h4>🎯 How MiBambu Colombia Can Win Juan Carlos</h4>
+                <p><strong>$60,000 de bono de bienvenida:</strong> Regalo por abrir cuenta cuando agregues $50,000 - casi un día de trabajo gratis</p>
+                <p><strong>Nómina sin costos + PSE gratis:</strong> Recibe tu salario y transfiere de bancos externos sin ninguna comisión - vs. comisiones de Daviplata</p>
+                <p><strong>Bre-B instantáneo para todo:</strong> Paga servicios públicos y facturas al instante (menos de 20 segundos) a cualquier hora, sin comisión - adiós a esperas</p>
+                <p><strong>Remesas familiares gratis usuario-a-usuario:</strong> Envía a familiares con MiBambu sin costo - si están en USA, pueden enviarte con MyBambu</p>
+                <p><strong>Microcréditos de nómina:</strong> Anticipos de sueldo al instante en la app sin papeleos</p>
+                <p><strong>Cuenta de ahorro con rendimientos:</strong> Tu dinero crece mientras está guardado - mejores tasas que cuentas tradicionales</p>
+                <p><strong>Soporte por WhatsApp:</strong> Ayuda rápida en el canal que ya usas todo el día</p>
+            </div>
+        </div>
+
+        <!-- Persona 5: Isabella - Movii User -->
+        <div class="persona">
+            <div class="persona-header">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Isabella" class="persona-image">
+                <div class="persona-title">
+                    <h2>Isabella Castro</h2>
+                    <p class="tagline">"Mi negocio necesita una cuenta empresarial fácil"</p>
+                    <span class="competitor-tag">Movii User Profile</span>
+                </div>
+            </div>
+
+            <div class="demographics">
+                <p><strong>Edad:</strong> <span>32 años</span></p>
+                <p><strong>Ubicación:</strong> <span>Cartagena, Colombia</span></p>
+                <p><strong>Ocupación:</strong> <span>Dueña de Tienda / Emprendedora</span></p>
+                <p><strong>Ingresos:</strong> <span>$2,500,000 - $5,000,000 COP/mes</span></p>
+                <p><strong>Estado:</strong> <span>Casada</span></p>
+            </div>
+
+            <div class="persona-content">
+                <div class="persona-section">
+                    <h3>🎯 Goals & Motivations</h3>
+                    <ul>
+                        <li>Separar finanzas personales de negocio</li>
+                        <li>Recibir pagos digitales de clientes</li>
+                        <li>Acceder a crédito para invertir en inventario</li>
+                        <li>Hacer pagos a proveedores fácilmente</li>
+                        <li>Controlar flujo de caja del negocio</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>😤 Frustrations & Pain Points</h3>
+                    <ul>
+                        <li>Movii no tiene cuenta empresarial robusta</li>
+                        <li>Opciones limitadas de crédito empresarial</li>
+                        <li>No ofrece datáfono o TPV integrado</li>
+                        <li>Reportes financieros muy básicos</li>
+                        <li>Falta integración con contabilidad</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>💳 Financial Behavior</h3>
+                    <ul>
+                        <li>Mezcla gastos personales y del negocio</li>
+                        <li>Recibe pagos por Nequi y Movii</li>
+                        <li>Paga proveedores con transferencias</li>
+                        <li>Guarda efectivo en casa por desconfianza</li>
+                        <li>Necesita crédito frecuentemente para stock</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>📱 Tech & Communication</h3>
+                    <ul>
+                        <li>Smartphone Android gama media</li>
+                        <li>Usa WhatsApp Business</li>
+                        <li>Activa en Instagram para su negocio</li>
+                        <li>Busca tutoriales de emprendimiento</li>
+                        <li>Forma parte de grupos de emprendedores</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h4>🎯 How MiBambu Colombia Can Win Isabella</h4>
+                <p><strong>Cuenta empresarial gratuita + bono $60,000:</strong> Separación clara entre personal y negocio + regalo de apertura para invertir en stock</p>
+                <p><strong>Bre-B para pagar proveedores al instante:</strong> Paga a proveedores en cualquier banco en menos de 20 segundos, sin comisión - mejora tu flujo de caja</p>
+                <p><strong>Cobra de clientes sin costo:</strong> Recibe transferencias usuario-a-usuario gratis + PSE sin comisión de clientes con otros bancos</p>
+                <p><strong>Remesas de USA para tu negocio:</strong> Solicita dinero de MyBambu USA si importas productos o tienes familia que apoya tu emprendimiento</p>
+                <p><strong>Crédito capital de trabajo:</strong> Líneas de crédito rotativo para inventario - aprobación rápida basada en movimientos de tu cuenta</p>
+                <p><strong>Dashboard de negocio:</strong> Reportes de ventas, gastos y flujo de caja - ve en tiempo real cómo va tu tienda</p>
+                <p><strong>Refiere otros emprendedores y gana:</strong> Programa de referidos generoso - crece tu red y gana dinero extra</p>
+            </div>
+        </div>
+
+        <!-- Persona 6: Santiago - Lulo Bank User -->
+        <div class="persona">
+            <div class="persona-header">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop" alt="Santiago" class="persona-image">
+                <div class="persona-title">
+                    <h2>Santiago Jiménez</h2>
+                    <p class="tagline">"Quiero que mi dinero crezca, no dormir en una cuenta"</p>
+                    <span class="competitor-tag">Lulo Bank User Profile</span>
+                </div>
+            </div>
+
+            <div class="demographics">
+                <p><strong>Edad:</strong> <span>29 años</span></p>
+                <p><strong>Ubicación:</strong> <span>Bogotá, Colombia</span></p>
+                <p><strong>Ocupación:</strong> <span>Ingeniero de Software</span></p>
+                <p><strong>Ingresos:</strong> <span>$6,000,000 - $9,000,000 COP/mes</span></p>
+                <p><strong>Estado:</strong> <span>Soltero</span></p>
+            </div>
+
+            <div class="persona-content">
+                <div class="persona-section">
+                    <h3>🎯 Goals & Motivations</h3>
+                    <ul>
+                        <li>Maximizar rendimientos en cuenta de ahorros</li>
+                        <li>Invertir en fondos o acciones desde la app</li>
+                        <li>Evitar comisiones bancarias absurdas</li>
+                        <li>Gestionar finanzas de forma inteligente</li>
+                        <li>Planificar independencia financiera</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>😤 Frustrations & Pain Points</h3>
+                    <ul>
+                        <li>Lulo Bank tiene rendimientos buenos pero limitados</li>
+                        <li>No ofrece inversiones avanzadas (acciones, ETFs)</li>
+                        <li>Falta de opciones de inversión internacional</li>
+                        <li>No tiene tarjeta de crédito premium con beneficios</li>
+                        <li>Pocas integraciones con herramientas financieras</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>💳 Financial Behavior</h3>
+                    <ul>
+                        <li>Ahorra 40% de sus ingresos mensualmente</li>
+                        <li>Usa Lulo Bank por altos rendimientos</li>
+                        <li>Invierte en criptomonedas por fuera</li>
+                        <li>Usa tarjeta de crédito para todo (cashback)</li>
+                        <li>Lee sobre finanzas e inversiones regularmente</li>
+                    </ul>
+                </div>
+
+                <div class="persona-section">
+                    <h3>📱 Tech & Communication</h3>
+                    <ul>
+                        <li>iPhone Pro + MacBook + Apple Watch</li>
+                        <li>Early adopter de fintech y crypto</li>
+                        <li>Lee Reddit, Twitter financiero, newsletters</li>
+                        <li>Valora seguridad y encriptación</li>
+                        <li>Busca optimizar todo con tecnología</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h4>🎯 How MiBambu Colombia Can Win Santiago</h4>
+                <p><strong>Operaciones instantáneas sin costos:</strong> Bre-B te permite mover dinero entre cuentas al instante para optimizar rendimientos - rebalanceo de portafolio en tiempo real</p>
+                <p><strong>PSE gratuito sin límites:</strong> Trae dinero de múltiples fuentes sin comisión - maximiza tus inversiones sin perder en fees</p>
+                <p><strong>Rendimientos competitivos + inversiones:</strong> Tasas iguales o mejores que Lulo + acceso a fondos indexados y crypto desde la app</p>
+                <p><strong>Tarjeta de crédito premium:</strong> Cashback alto en todas las compras - maximiza tu ROI en gastos diarios</p>
+                <p><strong>Recibe ingresos de USA:</strong> Si trabajas remoto para empresas USA, solicita dinero directo de MyBambu sin intermediarios caros</p>
+                <p><strong>Robo-advisor gratuito:</strong> AI que optimiza portafolio automáticamente según tu perfil de riesgo</p>
+                <p><strong>API abierta:</strong> Integración con Mint, YNAB, Personal Capital - para power users como tú</p>
+                <p><strong>Programa de referidos para influencers:</strong> Gana más por cada persona que traigas - monetiza tu red</p>
+            </div>
+        </div>
+
+        <!-- Marketing Strategy -->
+        <div class="strategy-section">
+            <h2>Estrategia de Conquista de Mercado</h2>
+
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <h3>🎯 Diferenciación Clave</h3>
+                    <ul>
+                        <li><strong>Bre-B instantáneo GRATIS:</strong> Transferencias a cualquier banco en <20 seg, 24/7, $0 comisión - ningún competidor ofrece esto</li>
+                        <li><strong>PSE sin costo:</strong> Recarga tu cuenta MiBambu desde cualquier banco gratis - vs. comisiones de competencia</li>
+                        <li><strong>Usuario-a-usuario sin límite:</strong> Transferencias P2P entre usuarios MiBambu totalmente gratis</li>
+                        <li><strong>Conexión con USA:</strong> Solicita dinero de MyBambu USA - remesas internacionales simplificadas</li>
+                        <li><strong>$60,000 de bono + referidos:</strong> Programa de incentivos más agresivo del mercado</li>
+                        <li><strong>Todo-en-uno real:</strong> Cuenta + crédito + tarjetas + remesas en una sola app</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-card">
+                    <h3>📱 Canales de Adquisición</h3>
+                    <ul>
+                        <li><strong>WhatsApp Business:</strong> Onboarding y soporte conversacional</li>
+                        <li><strong>TikTok/Instagram:</strong> Contenido educativo y testimoniales</li>
+                        <li><strong>Programa de referidos:</strong> Incentivos agresivos vs. competencia</li>
+                        <li><strong>Comunidades:</strong> Presencia en barrios y universidades</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-card">
+                    <h3>💰 Propuesta de Valor por Segmento</h3>
+                    <ul>
+                        <li><strong>Informales (Camila):</strong> $60K bono + crédito sin historial + remesas USA</li>
+                        <li><strong>Jóvenes (Andrés):</strong> Bono + refiere amigos + P2P gratis + tarjeta sin cuota</li>
+                        <li><strong>Profesionales (Valentina):</strong> Bre-B instantáneo + sin límites + inversiones</li>
+                        <li><strong>Trabajadores (Juan Carlos):</strong> Nómina + Bre-B para servicios + remesas familia</li>
+                        <li><strong>Emprendedores (Isabella):</strong> Cuenta empresarial + Bre-B proveedores + crédito</li>
+                        <li><strong>High-income (Santiago):</strong> Optimización rendimientos + premium card + USA income</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-card">
+                    <h3>🏆 Ventajas Competitivas</h3>
+                    <ul>
+                        <li><strong>vs. Nequi:</strong> Bre-B instantáneo + crédito + sin límites absurdos + P2P sin restricciones</li>
+                        <li><strong>vs. Nubank:</strong> Bre-B gratis + remesas USA + bono $60K + más localización</li>
+                        <li><strong>vs. Daviplata:</strong> Bre-B $0 comisión + PSE gratis + tarjeta crédito + mejor rendimiento</li>
+                        <li><strong>vs. Movii:</strong> Cuenta empresarial + Bre-B para proveedores + remesas USA</li>
+                        <li><strong>vs. Lulo:</strong> Bre-B + inversiones + tarjeta premium + USA income</li>
+                        <li><strong>vs. TODOS:</strong> Única con Bre-B instantáneo gratis 24/7 + ecosistema USA-Colombia</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="insight-box" style="margin-top: 30px;">
+                <h4>🚀 Recomendaciones de Lanzamiento - Q4 2025</h4>
+                <p><strong>Fase 1 - Pre-Lanzamiento (Ahora - Nov 2025):</strong> Campaña de expectativa destacando "Transferencias instantáneas GRATIS a cualquier banco" + waitlist con prioridad + sneak peek del bono $60,000</p>
+                <p><strong>Fase 2 - Lanzamiento Masivo (Dic 2025):</strong> Activación total con promociones:
+                • $60,000 por abrir cuenta + agregar $50,000
+                • Programa de referidos agresivo (usuario gana al referir amigos)
+                • Bre-B GRATIS como killer feature en toda la comunicación
+                • PSE sin costo vs. comisiones de competencia
+                • Cobertura nacional en todo Colombia</p>
+                <p><strong>Fase 3 - Viralización (Ene-Mar 2026):</strong>
+                • Casos de éxito de usuarios ahorrando en comisiones con Bre-B
+                • Testimoniales de remesas USA-Colombia
+                • Expansión de productos (crédito, inversiones, empresarial)
+                • Partnerships estratégicos (comercios, universidades, empresas para nómina)</p>
+                <p><strong>Mensajes Clave:</strong> "Transferencias al instante, $0 comisión" | "Recibe dinero de USA directo" | "Gana $60,000 solo por abrir tu cuenta" | "Todo Colombia, una sola app"</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>MiBambu Colombia - Market Intelligence Report 2025</p>
+            <p style="margin-top: 10px; color: #00D9FF;">Basado en 21,716 leads colombianos y análisis competitivo profundo</p>
+            <p style="margin-top: 15px; color: #7AFF6F; font-size: 0.9em;">
+                📞 +57 601-919-03-25 | 📧 servicioalcliente@mibambu.com.co
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
